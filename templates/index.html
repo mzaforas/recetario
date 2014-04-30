@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<table class="table table-striped table-condensed table-responsive">
+    <thead>
+        <th>Receta</th>
+        <th>Tiempo elaboración</th>
+        <th>Número comensales</th>
+        <th>Coste</th>
+        <th>Dificultad</th>
+        <th>Valoración</th>
+        <!--<th>Node</th>-->
+    </thead>
+    <tbody>
+    {% for receta in recetas %}
+        <tr>
+            <td><a href="{{ url_for('modificar', id=receta.id) }}">{{ receta.nombre }}</a></td>
+            <td>{{ receta.tiempo_elaboracion }} minutos</td>
+            <td>{{ receta.numero_comensales }}</td>
+            <td>{{ receta.coste }} &euro;</td>
+            <td>{{ receta.dificultad }}</td>
+            <td>{{ receta.valoracion }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

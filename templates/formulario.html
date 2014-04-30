@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="jumbotron">
+    {% if receta %}
+        <form method="post" action="{{ url_for('modificar', id=receta.id) }}" role="form">
+    {% else %}
+        <form method="post" action="{{ url_for('insertar') }}" role="form">
+    {% endif %}
+        <div class="form-group">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="{{ form.nombre.data }}">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="10" placeholder="Elaboración" id="elaboracion" name="elaboracion">{{ form.elaboracion.data }}</textarea>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="tiempo_elaboracion" name="tiempo_elaboracion" placeholder="Tiempo elaboración (minutos)" value="{{ form.tiempo_elaboracion.data }}">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="numero_comensales" name="numero_comensales" placeholder="Número comensales" value="{{ form.numero_comensales.data }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="origen" name="origen" placeholder="Origen" value="{{ form.origen.data }}">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="coste" name="coste" placeholder="Coste" value="{{ form.coste.data }}">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="dificultad" name="dificultad" placeholder="Dificultad" value="{{ form.dificultad.data }}">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="valoracion" name="valoracion" placeholder="Valoración" value="{{ form.valoracion.data }}">
+        </div>
+
+        <button type="submit" class="btn btn-default">Guardar</button>
+    </form>
+</div>
+{% endblock %}
