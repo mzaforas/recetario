@@ -106,7 +106,7 @@ def insertar():
         receta = Receta(**{field.name: field.data for field in form})
         db.session.add(receta)
         db.session.commit()
-        flash(u'Receta guardada')
+        flash(u'Receta guardada', 'success')
         return redirect(url_for('index'))
     return render_template('formulario.html', form=form)
 
@@ -120,7 +120,7 @@ def modificar(id):
         receta.update(**{field.name: field.data for field in form})
         db.session.add(receta)
         db.session.commit()
-        flash(u'Receta guardada')
+        flash(u'Receta guardada', 'success')
         return redirect(url_for('index'))
     return render_template('formulario.html', form=form, receta=receta)
 

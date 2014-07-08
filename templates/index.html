@@ -15,11 +15,11 @@
     {% for receta in recetas %}
         <tr>
             <td><a href="{{ url_for('modificar', id=receta.id) }}">{{ receta.nombre }}</a></td>
-            <td>{{ receta.tiempo_elaboracion }} minutos</td>
-            <td>{{ receta.numero_comensales }}</td>
-            <td>{{ receta.coste }} &euro;</td>
-            <td>{{ receta.dificultad }}</td>
-            <td>{{ receta.valoracion }}</td>
+            <td>{% if receta.tiempo_elaboracion %}{{ receta.tiempo_elaboracion }} minutos{% endif %}</td>
+            <td>{{ receta.numero_comensales if receta.numero_comensales != None }}</td>
+            <td>{% if receta.coste %}{{ receta.coste }} &euro;{% endif %}</td>
+            <td>{{ receta.dificultad if receta.dificultad != None }}</td>
+            <td>{{ receta.valoracion if receta.valoracion != None }}</td>
         </tr>
     {% endfor %}
     </tbody>
